@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ServerTest {
     @Test
     public void ServerTest() throws IOException {
-        new Server().startServer(9876);
+        new Server().startServer(9876,null);
         String url = "http://localhost:9876/ping";
         String source ="";
         URL oracle = new URL(url);
@@ -25,6 +25,6 @@ public class ServerTest {
         while ((inputLine = in.readLine()) != null)
             source +=inputLine;
         in.close();
-        assertEquals("Hello", source);
+        assertEquals("OK", source);
     }
 }
