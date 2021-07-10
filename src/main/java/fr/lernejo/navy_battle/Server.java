@@ -60,14 +60,15 @@ public class Server extends AbstractServer {
 
     public void HandleFire(RequestHandler handler) throws IOException {
         try {
-            var response = new JSONObject();
-            response.put("test", "left");
-            response.put("shipLeft", true);
-            fire();
+            String cell = handler.getQueryParameter("cell");
+            var pos = new Coordinates(cell);var res = localMap.get().hit(pos);var response = new JSONObject();
+            response.put("consequence", res.toAPI());response.put("shipLeft", localMap.get().hasShipLeft());
             handler.sendJSON(200, response);
+            if (localMap.get().hasShipLeft()) {
+                fire();
+            }
         } catch (Exception e) {
-            e.printStackTrace();
-            handler.sendString(400, e.getMessage());
+            e.printStackTrace();handler.sendString(400, e.getMessage());
         }
     }
 
