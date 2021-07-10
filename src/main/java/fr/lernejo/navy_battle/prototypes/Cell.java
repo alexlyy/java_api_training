@@ -11,4 +11,7 @@ public enum Cell {
     Cell(String letter) {
         this.letter = letter;
     }
+    public String getLetter() {
+        return letter;
+    }
 }

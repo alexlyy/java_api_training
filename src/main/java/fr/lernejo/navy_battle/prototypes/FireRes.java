@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public enum FireRes {
-    MISS("miss"), HIT("hit"), SUNK("sunk");
+    HIT("hit"),
+    MISS("miss"),
+    SUNK("sunk");
 
     private final String apiString;
 
@@ -15,9 +17,6 @@ public enum FireRes {
         this.apiString = res;
     }
 
-    /**
-     * Turn an API entry into a FireResult instance
-     */
     public static FireRes fromAPI(String value) {
         var res = Arrays.stream(FireRes.values()).filter(f -> f.apiString.equals(value)).findFirst();
 
