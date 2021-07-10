@@ -33,6 +33,13 @@ public class ServerInfo {
         obj.put("message", message);
         return obj;
     }
+    public ServerInfo withURL(String url) {
+        return new ServerInfo(
+                this.id,
+                url,
+                this.message
+        );
+    }
 
     public static ServerInfo fromJSON(JSONObject object) throws JSONException {
         return new ServerInfo(
@@ -42,11 +49,5 @@ public class ServerInfo {
         );
     }
 
-    public ServerInfo withURL(String url) {
-        return new ServerInfo(
-                this.id,
-                url,
-                this.message
-        );
-    }
+
 }

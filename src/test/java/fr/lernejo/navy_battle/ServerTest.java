@@ -29,6 +29,7 @@ public class ServerTest {
         in.close();
         assertEquals("OK", source);
     }
+    @Test
     void testIt() {
         var one = new ServerInfo("id", "url", "message");
         assertEquals("id", one.getId());

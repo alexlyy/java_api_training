@@ -34,4 +34,5 @@ public abstract class AbstractServer {
         var response = client.send(requeteGET, HttpResponse.BodyHandlers.ofString());
         return new JSONObject(response.body());
     }
+
 }
