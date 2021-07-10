@@ -15,8 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ServerTest {
     @Test
     public void ServerTest() throws IOException {
-        new Server().startServer(9876,null);
-        String url = "http://localhost:9876/ping";
+        new Server().startServer(8888,null);
+        String url = "http://localhost:8888/ping";
         String source ="";
         URL oracle = new URL(url);
         URLConnection yc = oracle.openConnection();
